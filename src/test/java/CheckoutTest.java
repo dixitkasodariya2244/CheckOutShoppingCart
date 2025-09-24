@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CheckoutTest {
     //empty cart should cost £0.00
@@ -44,4 +45,27 @@ public class CheckoutTest {
         assertEquals(0.50, Checkout.totalWithOffers(List.of("Orange", "Orange", "Orange"))); // pay for 2
         assertEquals(0.75, Checkout.totalWithOffers(List.of("Orange", "Orange", "Orange", "Orange"))); // pay for 3
     }
+
+    //Mixed offers applied together
+    @Test
+    void mixedOffers_combined() {
+        // 3 apples -> pay for 2 = £1.20
+        // 1 orange = £0.25
+        // total = £1.45
+        assertEquals(1.45, Checkout.totalWithOffers(List.of("Apple", "Apple", "Orange", "Apple")));
+    }
+
+    //null input should throw an exception
+    @Test
+    void nullListThrows() {
+        assertThrows(IllegalArgumentException.class, () -> Checkout.total(null));
+        assertThrows(IllegalArgumentException.class, () -> Checkout.totalWithOffers(null));
+    }
+
+    // unknown item should throw an exception
+    @Test
+    void unknownItemThrows() {
+        assertThrows(IllegalArgumentException.class, () -> Checkout.total(List.of("Banana")));
+    }
+
 }
