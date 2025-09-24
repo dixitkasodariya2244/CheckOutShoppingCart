@@ -37,4 +37,11 @@ public class CheckoutTest {
         assertEquals(1.20, Checkout.totalWithOffers(List.of("Apple", "Apple", "Apple"))); // pay for 2
         assertEquals(1.20, Checkout.totalWithOffers(List.of("Apple", "Apple", "Apple", "Apple"))); // pay for 2
     }
+
+    //Offers - 3 for 2 on Oranges
+    @Test
+    void threeForTwoOranges_offer() {
+        assertEquals(0.50, Checkout.totalWithOffers(List.of("Orange", "Orange", "Orange"))); // pay for 2
+        assertEquals(0.75, Checkout.totalWithOffers(List.of("Orange", "Orange", "Orange", "Orange"))); // pay for 3
+    }
 }
