@@ -72,7 +72,7 @@ public class CheckoutTest {
     @Test
     void caseAndWhitespaceInsensitive() {
         assertEquals(0.60, Checkout.total(List.of("  apple  "))); // spaces
-        assertEquals(0.25, Checkout.total(List.of("ORANGE")));    // uppercase
+        assertEquals(0.25, Checkout.total(List.of("ORANGE")));    // uppercases
     }
 
 }
