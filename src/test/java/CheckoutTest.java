@@ -11,4 +11,15 @@ public class CheckoutTest {
     void emptyCartIsZero() {
         assertEquals(0.00, Checkout.total(List.of()));
     }
+    //a single Apple should cost £0.60
+    @Test
+    void singleAppleCosts60p() {
+        assertEquals(0.60, Checkout.total(List.of("Apple")));
+    }
+
+    //a single Orange should cost £0.25
+    @Test
+    void singleOrangeCosts25p() {
+        assertEquals(0.25, Checkout.total(List.of("Orange")));
+    }
 }
