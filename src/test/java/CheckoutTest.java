@@ -22,4 +22,11 @@ public class CheckoutTest {
     void singleOrangeCosts25p() {
         assertEquals(0.25, Checkout.total(List.of("Orange")));
     }
+
+
+    //example from assignment -  [Apple, Apple, Orange, Apple] = 0.60 + 0.60 + 0.25 + 0.60 = £2.05
+    @Test
+    void mixedCartExample() {
+        assertEquals(2.05, Checkout.total(List.of("Apple", "Apple", "Orange", "Apple")));
+    }
 }
