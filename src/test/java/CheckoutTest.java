@@ -68,4 +68,11 @@ public class CheckoutTest {
         assertThrows(IllegalArgumentException.class, () -> Checkout.total(List.of("Banana")));
     }
 
+    //input should be case-insensitive and ignore whitespace
+    @Test
+    void caseAndWhitespaceInsensitive() {
+        assertEquals(0.60, Checkout.total(List.of("  apple  "))); // spaces
+        assertEquals(0.25, Checkout.total(List.of("ORANGE")));    // uppercase
+    }
+
 }
