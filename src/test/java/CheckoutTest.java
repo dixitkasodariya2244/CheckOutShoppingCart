@@ -62,6 +62,13 @@ public class CheckoutTest {
         assertThrows(IllegalArgumentException.class, () -> Checkout.totalWithOffers(null));
     }
 
+    //null input should throw an exception
+    @Test
+    void nullListThrows() {
+        assertThrows(IllegalArgumentException.class, () -> Checkout.total(null));
+        assertThrows(IllegalArgumentException.class, () -> Checkout.totalWithOffers(null));
+    }
+
     // unknown item should throw an exception
     @Test
     void unknownItemThrows() {
