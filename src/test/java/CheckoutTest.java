@@ -29,4 +29,12 @@ public class CheckoutTest {
     void mixedCartExample() {
         assertEquals(2.05, Checkout.total(List.of("Apple", "Apple", "Orange", "Apple")));
     }
+
+    //Offers - Buy One Get One Free on Apples
+    @Test
+    void bogofApples_offer() {
+        assertEquals(0.60, Checkout.totalWithOffers(List.of("Apple", "Apple"))); // pay for 1
+        assertEquals(1.20, Checkout.totalWithOffers(List.of("Apple", "Apple", "Apple"))); // pay for 2
+        assertEquals(1.20, Checkout.totalWithOffers(List.of("Apple", "Apple", "Apple", "Apple"))); // pay for 2
+    }
 }
